@@ -3,6 +3,7 @@ import * as React from "react";
 import { SFC } from "react";
 import "./board.css";
 import { Backend } from "./contracts/backend";
+import Tile from "./Tile";
 
 export const Board: SFC<{ data: Backend }> = ({ data }) => (
     <div className="board-root">
@@ -14,7 +15,9 @@ export const Board: SFC<{ data: Backend }> = ({ data }) => (
                         className={classNames("board-tile", {
                             alternate: !!((row ^ col) & 1)
                         })}
-                    />
+                    >
+                        {tileData && <Tile {...tileData} />}
+                    </div>
                 ))}
             </div>
         ))}

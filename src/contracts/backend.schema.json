@@ -33,7 +33,8 @@
                 "piece": {
                     "$ref": "#/definitions/piece"
                 }
-            }
+            },
+            "required": ["player", "piece"]
         }
     }
 }

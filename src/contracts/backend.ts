@@ -31,8 +31,8 @@ export interface Backend {
 }
 
 export interface PlayerPiece {
-    piece?:  Piece;
-    player?: Player;
+    piece:  Piece;
+    player: Player;
 }
 
 export enum Piece {
@@ -142,8 +142,8 @@ export namespace Convert {
             board: a(a(u(null, r("PlayerPiece")))),
         }, "any"),
         "PlayerPiece": o({
-            piece: u(undefined, r("Piece")),
-            player: u(undefined, r("Player")),
+            piece: r("Piece"),
+            player: r("Player"),
         }, "any"),
         "Piece": [
             "bishop",
