@@ -1,4 +1,5 @@
 import * as React from "react";
+import Board from "./Board";
 import * as Contracts from "./contracts/backend";
 
 interface IBoardState {
@@ -23,7 +24,11 @@ export default class BoardContainer extends React.Component<{}, IBoardState> {
             );
         }
 
-        return null;
+        if (this.state.data) {
+            return <Board data={this.state.data} />;
+        }
+
+        return <p>Please Stand By...</p>;
     }
 
     public async componentDidMount() {

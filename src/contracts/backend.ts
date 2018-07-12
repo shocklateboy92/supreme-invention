@@ -27,7 +27,7 @@
 //
 
 export interface Backend {
-    board?: Array<Array<null | PlayerPiece>>;
+    board: Array<Array<null | PlayerPiece>>;
 }
 
 export interface PlayerPiece {
@@ -139,7 +139,7 @@ export namespace Convert {
 
     const typeMap: any = {
         "Backend": o({
-            board: u(undefined, a(a(u(null, r("PlayerPiece"))))),
+            board: a(a(u(null, r("PlayerPiece")))),
         }, "any"),
         "PlayerPiece": o({
             piece: u(undefined, r("Piece")),

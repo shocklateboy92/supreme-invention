@@ -13,7 +13,8 @@
                         }
                     }
                 }
-            }
+            },
+            "required": ["board"]
         },
         "player": {
             "type": "string",

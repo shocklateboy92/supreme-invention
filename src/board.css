@@ -1,0 +1,18 @@
+.error {
+    color: red;
+}
+
+.board-root {
+}
+
+.board-row {
+    display: flex;
+}
+
+.board-tile {
+    min-height: 128px;
+    min-width: 128px;
+}
+.board-tile.alternate {
+    background: gray;
+}
