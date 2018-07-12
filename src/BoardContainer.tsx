@@ -1,8 +1,9 @@
 import * as React from "react";
+import * as Contracts from "./contracts/backend";
 
 interface IBoardState {
     error?: string;
-    data?: any;
+    data?: Contracts.Backend;
 }
 
 export default class BoardContainer extends React.Component<{}, IBoardState> {
@@ -26,25 +27,14 @@ export default class BoardContainer extends React.Component<{}, IBoardState> {
     }
 
     public async componentDidMount() {
-        try {
-            const response = await fetch(
-                `http://hyena-mkii.home.lasath.org:8080/`
-            );
-            if (response.status !== 200) {
-                this.setState({
-                    error: `Backend server returned ${response.statusText}`
-                });
-            }
-
+        const response = await fetch(`http://hyena-mkii.home.lasath.org:8080/`);
+        if (response.status !== 200) {
             this.setState({
-                data: await response.json()
-            });
-        } catch (exception) {
-            this.setState({
-                error: `Unable to comminicate with backend server: ${
-                    exception.message
-                }`
+                error: `Backend server returned ${response.statusText}`
             });
         }
+
+        const data = await response.text();
+        this.setState({ data: Contracts.Convert.toBackend(data) });
     }
 }

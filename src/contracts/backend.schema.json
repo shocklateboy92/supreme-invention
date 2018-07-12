@@ -24,10 +24,13 @@
             "enum": ["king", "queen", "rook", "knight", "bishop", "pawn"]
         },
         "playerPiece": {
-            "type": "object",
+            "type": ["object", "null"],
             "properties": {
                 "player": {
                     "$ref": "#/definitions/player"
+                },
+                "piece": {
+                    "$ref": "#/definitions/piece"
                 }
             }
         }

@@ -27,11 +27,21 @@
 //
 
 export interface Backend {
-    board?: Array<PlayerPiece[]>;
+    board?: Array<Array<null | PlayerPiece>>;
 }
 
 export interface PlayerPiece {
+    piece?:  Piece;
     player?: Player;
+}
+
+export enum Piece {
+    Bishop = "bishop",
+    King = "king",
+    Knight = "knight",
+    Pawn = "pawn",
+    Queen = "queen",
+    Rook = "rook",
 }
 
 export enum Player {
@@ -129,11 +139,20 @@ export namespace Convert {
 
     const typeMap: any = {
         "Backend": o({
-            board: u(undefined, a(a(r("PlayerPiece")))),
+            board: u(undefined, a(a(u(null, r("PlayerPiece"))))),
         }, "any"),
         "PlayerPiece": o({
+            piece: u(undefined, r("Piece")),
             player: u(undefined, r("Player")),
         }, "any"),
+        "Piece": [
+            "bishop",
+            "king",
+            "knight",
+            "pawn",
+            "queen",
+            "rook",
+        ],
         "Player": [
             "black",
             "white",
