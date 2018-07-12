@@ -1,0 +1,35 @@
+{
+    "$ref": "#/definitions/stateRepr",
+    "definitions": {
+        "stateRepr": {
+            "type": "object",
+            "properties": {
+                "board": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/playerPiece"
+                        }
+                    }
+                }
+            }
+        },
+        "player": {
+            "type": "string",
+            "enum": ["black", "white"]
+        },
+        "piece": {
+            "type": "string",
+            "enum": ["king", "queen", "rook", "knight", "bishop", "pawn"]
+        },
+        "playerPiece": {
+            "type": "object",
+            "properties": {
+                "player": {
+                    "$ref": "#/definitions/player"
+                }
+            }
+        }
+    }
+}
