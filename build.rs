@@ -38,6 +38,8 @@ fn run_command(command_str: &str) {
     ));
 }
 
+// build func for schema
+
 fn build_schema() {
     let input_file = "src/contracts/backend.schema.json";
     let output_file = "src/backend/schema.rs";
@@ -51,8 +53,8 @@ fn build_schema() {
 fn main() {
     let rules = [
         (
-            "src/schema.rs",
-            vec!["contracts/backend.schema.json", "build.rs"],
+            "src/backend/schema.rs",
+            vec!["src/contracts/backend.schema.json", "build.rs"],
             build_schema,
         ),
     ];
