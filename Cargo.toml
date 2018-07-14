@@ -1,0 +1,17 @@
+[package]
+name = "chess"
+version = "0.1.0"
+authors = ["Sahan Fernando <sahan.h.fernando@gmail.com>"]
+
+[[bin]]
+path = "src/backend/main.rs"
+name = "chess_srv"
+
+[dependencies]
+nickel = "*"
+nickel_cors = "0.2.0"
+hyper = "0.10.13"
+serde = "1.0.70"
+serde_derive = "1.0.70"
+serde_json = "1.0.22"
+chrono = "0.4"
